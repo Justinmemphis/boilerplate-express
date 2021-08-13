@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 
+app.get("/name", (req, res) => {
+  var { first: firstName, last: lastName } = req.query;
+  res.json({
+    name: `${firstName} ${lastName}`
+  })
+});
+
 app.get("/:word/echo", (req, res) => {
   const { word } = req.params;
   res.json({
