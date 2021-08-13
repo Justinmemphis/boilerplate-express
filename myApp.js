@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
 
+function(req, res, next) {
+  console.log(req.method + " " + req.path + " - " + req.ip);
+  next();
+}
+
 app.use(express.static(__dirname + "/public"));
 
 app.use("/public", express.static(__dirname + "/public"));
@@ -20,24 +25,6 @@ app.get("/json", (req, res) => {
     });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
