@@ -6,12 +6,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
+app.post("/name", function(req, rest) {
+  var string = req.body.first + " " + req.body.last;
+  res.json({ name: string });
+});
+
+/*
 app.get("/name", (req, res) => {
   var { first: firstName, last: lastName } = req.query;
   res.json({
     name: `${firstName} ${lastName}`
   });
 });
+*/
 
 app.get("/:word/echo", (req, res) => {
   const { word } = req.params;
