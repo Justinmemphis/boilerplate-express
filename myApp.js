@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 
+app.get("/:word/echo", (req, res) => {
+  const { word } = req.parems;
+  res.json({
+    echo: word
+  });
+});
+
 app.get("/now", (req, res, next) => {
   req.time = new Date().toString();
   next();
